@@ -25,6 +25,6 @@ jobs:
             - name: run python script
               run: |
                 python app.py &
-                sleeps 5
+                sleep 5
                 curl http://127.0.0.1:5000
 
