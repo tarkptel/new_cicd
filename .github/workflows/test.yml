@@ -10,14 +10,21 @@ jobs:
         steps:
 
             - name: checkout code
-              uses: actions/checkoutcode@v4
+              uses: actions/checkout@v4
 
             - name: setup python
               uses: actions/setup-python@v5
               with:
                 python-version: 3.10
+    
+            - name: Install Dependency
+              run: |
+                pip install -r requirements.txt
+                
 
             - name: run python script
               run: |
-                python app.py
+                python app.py &
+                sleeps 5
+                curl http://127.0.0.1:5000
 
