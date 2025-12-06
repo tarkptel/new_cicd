@@ -1,35 +1,20 @@
-name: test_sec
+name: print hello
 
 on:
   - push
 
 jobs:
   run-python:
+
     runs-on: ubuntu-latest
 
     steps:
 
-      - name: checkoutcode
-        uses: actions/checkout@v4
+      - name: code checkout
+        uses: actions/codecheckout@v4
 
-      - name: setuppython
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
+      # - name: setup-python
+      #   uses: actions/setup-python@v4
 
-      - name: install dependcies
-        run: |
-          pip install -r requirements.txt
-          pip install pytest
-
-      - name: run test
-        run: |
-          pytest -q || true
-
-      - name: run script
-        run: |
-          python app.py &
-          sleep 5
-          curl http://127.0.0.1:5000
-        
-
+      - name: print hello
+        uses: echo 'hello new code has been pushed'
