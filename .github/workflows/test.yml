@@ -13,8 +13,5 @@ jobs:
       - name: code checkout
         uses: actions/codecheckout@v4
 
-      # - name: setup-python
-      #   uses: actions/setup-python@v4
-
       - name: print hello
-        uses: echo 'hello new code has been pushed'
+        run: echo "Hello from GitHub Actions!"
