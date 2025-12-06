@@ -20,7 +20,11 @@ jobs:
             - name: Install Dependency
               run: |
                 pip install -r requirements.txt
+                pip install pytest
                 
+            - name: run test
+              run : |
+                pytest -q
 
             - name: run python script
               run: |
