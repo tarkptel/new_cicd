@@ -1,1 +1,3 @@
-print('Hello its ts')
+import flask
+
+print(flask.__version__)
