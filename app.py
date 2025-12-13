@@ -8,6 +8,6 @@ def xy(a,b):
         sum = a+b
     return sum
 
-s = xy(0,23)
+s = xy(0,2220)
 
 print(s)
