@@ -1,17 +1,28 @@
-name: On New Issue Opened
+name: test and run
 
 on:
-  issues:
-    types:
-      - opened
+  push:
+    branches:
+      - main
+      - beta
 
+  
 jobs:
-  run-on-new-issue:
+
+  run-python:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Echo event details
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: install python
+        uses: actions/setup-python@v5
+        with:
+            python-version: '3.8'
+
+      - name: run script
         run: |
-          echo "🎉 A new issue was opened!"
-          echo "Issue title: ${{ github.event.issue.title }}"
-          echo "Issue number: ${{ github.event.issue.number }}"
-          echo "Triggering event: ${{ github.event_name }}"
+          python app.py
+
+
