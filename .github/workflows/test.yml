@@ -8,23 +8,25 @@ on:
       -main
       -beta
 
-
 jobs:
+  runs-python:
 
-  run-python:
+    runs-on: ubuntu-latest
 
-    runs-on: ubuntu-lates
-    
     steps:
 
-      - name: checkout
+      - name: check code
         uses: actions/checkout@v4
 
       - name: setup python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.8'
 
-      - name: run script
+      - name: install pytest
         run: |
-          python app.py
+          pip install pytest
+
+      - name: run test
+        run: |
+          pytest
