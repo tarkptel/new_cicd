@@ -1,28 +1,29 @@
-name: test and run
+name: test
 
 on:
-  push:
-    branches:
-      - main
-      - beta
 
-  
+  push:
+
+    branches:
+      -main
+
+
 jobs:
 
   run-python:
-    runs-on: ubuntu-latest
 
+    runs-on: ubuntu-lates
+    
     steps:
-      - name: checkout code
+
+      - name: checkout
         uses: actions/checkout@v4
 
-      - name: install python
+      - name: setup python
         uses: actions/setup-python@v5
         with:
-            python-version: '3.8'
+          python-version: '3.10'
 
       - name: run script
         run: |
           python app.py
-
-
