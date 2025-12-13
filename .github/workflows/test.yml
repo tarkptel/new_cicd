@@ -1,32 +1,17 @@
-name: inst lib
+name: On New Issue Opened
 
 on:
-
-    push:
-
-      branches:
-        - main
+  issues:
+    types:
+      - opened
 
 jobs:
-
-  run-python:
-
+  run-on-new-issue:
     runs-on: ubuntu-latest
-
     steps:
-
-      - name: checkout code
-        uses: actions/checkout@v4
-
-      - name: setup python
-        uses: actions/setup-python@v5
-        with:
-            python-version: '3.10'
-
-      - name: instal lib
-        run : |
-          pip install -r requirements.txt
-
-      - name: run script
+      - name: Echo event details
         run: |
-         python app.py
+          echo "🎉 A new issue was opened!"
+          echo "Issue title: ${{ github.event.issue.title }}"
+          echo "Issue number: ${{ github.event.issue.number }}"
+          echo "Triggering event: ${{ github.event_name }}"
