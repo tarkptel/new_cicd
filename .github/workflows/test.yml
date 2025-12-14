@@ -1,32 +1,35 @@
-name: test
+name: python test
 
 on:
-
   push:
-
     branches:
-      -main
-      -beta
+      - main
+      - beta
+
 
 jobs:
-  runs-python:
+
+  run-python:
 
     runs-on: ubuntu-latest
 
     steps:
 
-      - name: check code
+      - name: checkout code
         uses: actions/checkout@v4
 
       - name: setup python
         uses: actions/setup-python@v5
-        with:
-          python-version: '3.8'
 
       - name: install pytest
-        run: |
+        run : |
           pip install pytest
 
       - name: run test
-        run: |
+        run : |
           pytest
+
+      - name: run script
+        run : |
+          python app.py
+
