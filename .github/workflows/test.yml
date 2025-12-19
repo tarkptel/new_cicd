@@ -1,15 +1,14 @@
-name: python test
+name: python-test
 
 on:
+
   push:
     branches:
       - main
       - beta
 
-
-jobs:
-
-  run-python:
+jobs: 
+  python-test:
 
     runs-on: ubuntu-latest
 
@@ -21,17 +20,18 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-verison: '3.10'
 
       - name: install pytest
         run : |
           pip install pytest
 
       - name: run test
-        run : |
+        run: |
           pytest
 
       - name: run script
-        run : |
-          python app.py
+        run: |
+         python app.py
 
+      

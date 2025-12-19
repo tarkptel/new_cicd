@@ -1,11 +1,11 @@
 FROM python 3.8
 
-COPY .app/
+WORKDIR app.py
 
-WORKDIR app/
+COPY app/ . 
+
+COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-EXPOSE 5000
-
-CMD ['python', 'app.py']
+CMD ["python", "app.py"]
