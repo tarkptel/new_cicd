@@ -25,7 +25,6 @@ jobs:
       - name: install pytest
         run: |
           pip install pytest
-          pip install requirements.txt
 
       - name: run test
         run: |
