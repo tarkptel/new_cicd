@@ -32,7 +32,7 @@ jobs:
 
       - name: run script
         run: |
-          app.py
+          python app.py
 
 
 
