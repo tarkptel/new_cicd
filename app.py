@@ -1,2 +1,2 @@
 def test_add():
-    assert 2 + 10 == 12
+    assert 2 + 100 == 102

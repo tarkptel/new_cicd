@@ -1,15 +1,15 @@
-name: python-test
+name: test
 
 on:
 
-  push:
-    branches:
-      - main
-      - beta
+    push:
+      branches:
+        - main
+        - beta
 
-jobs: 
+
+jobs:
   python-test:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -17,14 +17,15 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v4
 
-      - name: setup python
+      - name: satup python
         uses: actions/setup-python@v5
         with:
-          python-verison: '3.10'
+          python-version: '3.10'
 
       - name: install pytest
-        run : |
+        run: |
           pip install pytest
+          pip install requirements.txt
 
       - name: run test
         run: |
@@ -32,6 +33,7 @@ jobs:
 
       - name: run script
         run: |
-         python app.py
+          app.py
 
-      
+
+
